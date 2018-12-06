@@ -95,6 +95,17 @@ describe('Game', () => {
       test('Token lands on 100', () => {
         expect(game.position).toEqual(100)
       })
+
+      test('Game is won', () => {
+        expect(game.isWon()).toEqual(true)
+      })
+    })
+
+    test('', () => {
+      // Given the token is on square 97
+      // When the token is moved 4 spaces
+      // Then the token is on square 97
+      // And the player has not won the game
     })
   })
 })
