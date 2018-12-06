@@ -51,5 +51,21 @@ describe('Game', () => {
       expect(Math.random).toHaveBeenCalled()
       random.mockRestore()
     })
+
+    test('It should roll a minimum value of 1', () => {
+      const random = jest.spyOn(Math, 'random')
+      random.mockImplementation(() => 0)
+      game.rollDie()
+      expect(game.position).toEqual(2)
+      random.mockRestore()
+    })
+
+    test('It should roll a maximum value of 6', () => {
+      const random = jest.spyOn(Math, 'random')
+      random.mockImplementation(() => 0.99999999)
+      game.rollDie()
+      expect(game.position).toEqual(7)
+      random.mockRestore()
+    })
   })
 })
