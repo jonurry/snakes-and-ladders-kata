@@ -9,13 +9,18 @@ export default class Game {
     this.position = 1
     this.won = false
   }
+
   isWon() {
     return this.won
   }
+
   move(spaces) {
-    this.position += spaces
+    if (this.position + spaces <= 100) {
+      this.position += spaces
+    }
     this.won = this.position === 100
   }
+
   rollDie() {
     this.position += getRandomIntInclusive(1, 6)
   }
