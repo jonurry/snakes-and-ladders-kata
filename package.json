@@ -4,7 +4,9 @@
   "description": "Solution to the Snakes and Ladders Kata at http://agilekatas.co.uk/katas/SnakesAndLadders-Kata",
   "main": "index.js",
   "scripts": {
-    "test": "npx jest --watch"
+    "test": "npm run test:cov",
+    "test:watch": "npx jest --watch",
+    "test:cov": "npx jest --coverage"
   },
   "repository": {
     "type": "git",
