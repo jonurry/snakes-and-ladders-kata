@@ -1,14 +1,16 @@
 import Game from '../src/game'
 
 describe('Game', () => {
+  let game
+
+  beforeEach(() => {
+    game = new Game()
+  })
+
   describe('Token can move across the board', () => {
     // As a player
     // I want to be able to move my token
     // So that I can get closer to the goal
-    let game
-    beforeEach(() => {
-      game = new Game()
-    })
 
     test('Token starts on square 1', () => {
       // Given the game is started
@@ -40,11 +42,9 @@ describe('Game', () => {
     // As a player
     // I want to move my token based on the roll of a die
     // So that there is an element of chance in the game
-    let game
     let random
     beforeEach(() => {
       random = jest.spyOn(Math, 'random')
-      game = new Game()
     })
 
     afterEach(() => {
@@ -75,6 +75,26 @@ describe('Game', () => {
       random.mockImplementation(() => 0.5) // roll a 4
       game.rollDie()
       expect(game.position).toEqual(5)
+    })
+  })
+
+  describe('Player Can Win the Game', () => {
+    // As a player
+    // I want to be able to win the game
+    // So that I can gloat to everyone around
+    describe('Game is won when token lands on 100', () => {
+      // Given the token is on square 97
+      // When the token is moved 3 spaces
+      // Then the token is on square 100
+      // And the player has won the game
+      beforeEach(() => {
+        game.position = 97
+        game.move(3)
+      })
+
+      test('Token lands on 100', () => {
+        expect(game.position).toEqual(100)
+      })
     })
   })
 })
