@@ -41,42 +41,40 @@ describe('Game', () => {
     // I want to move my token based on the roll of a die
     // So that there is an element of chance in the game
     let game
+    let random
     beforeEach(() => {
+      random = jest.spyOn(Math, 'random')
       game = new Game()
     })
 
+    afterEach(() => {
+      random.mockRestore()
+    })
+
     test('It should randomise dice rolls', () => {
-      const random = jest.spyOn(Math, 'random')
       game.rollDie()
       expect(Math.random).toHaveBeenCalled()
-      random.mockRestore()
     })
 
     test('It should roll a minimum value of 1', () => {
-      const random = jest.spyOn(Math, 'random')
-      random.mockImplementation(() => 0)
+      random.mockImplementation(() => 0) // roll a 1
       game.rollDie()
       expect(game.position).toEqual(2)
-      random.mockRestore()
     })
 
     test('It should roll a maximum value of 6', () => {
-      const random = jest.spyOn(Math, 'random')
-      random.mockImplementation(() => 0.99999999)
+      random.mockImplementation(() => 0.99999999) // Roll a 6
       game.rollDie()
       expect(game.position).toEqual(7)
-      random.mockRestore()
     })
 
     test('It should move the number of spaces indicated on the die', () => {
       // Given the player rolls a 4
       // When they move their token
       // Then the token should move 4 spaces
-      const random = jest.spyOn(Math, 'random')
-      random.mockImplementation(() => 0.5) //roll a 4
+      random.mockImplementation(() => 0.5) // roll a 4
       game.rollDie()
       expect(game.position).toEqual(5)
-      random.mockRestore()
     })
   })
 })
