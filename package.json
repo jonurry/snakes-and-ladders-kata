@@ -23,8 +23,12 @@
   },
   "homepage": "https://github.com/jonurry/snakes-and-ladders-kata#readme",
   "devDependencies": {
-    "babel-preset-env": "^1.7.0",
+    "@babel/core": "*",
+    "@babel/cli": "*",
+    "@babel/preset-env": "*",
+    "babel-core": "7.0.0-bridge.0",
+    "babel-jest": "*",
     "eslint": "^5.9.0",
-    "jest": "^23.6.0"
+    "jest": "*"
   }
 }
