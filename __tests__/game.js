@@ -17,13 +17,19 @@
 // And then it is moved 4 spaces
 // Then the token is on square 8
 
-import Game from '../src/game.js'
+import Game from '../src/game'
 
 describe('Game', () => {
   describe('Token can move across the board', () => {
     test('Token starts on square 1', () => {
       const game = new Game()
       expect(game.position).toEqual(1)
+    })
+
+    test('Token can move 3 squares', () => {
+      const game = new Game()
+      game.move(3)
+      expect(game.position).toEqual(4)
     })
   })
 })
