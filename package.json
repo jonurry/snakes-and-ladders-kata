@@ -1,0 +1,25 @@
+{
+  "name": "snakes-and-ladders-kata",
+  "version": "1.0.0",
+  "description": "Solution to the Snakes and Ladders Kata at http://agilekatas.co.uk/katas/SnakesAndLadders-Kata",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jonurry/snakes-and-ladders-kata.git"
+  },
+  "keywords": [
+    "snakes",
+    "laders",
+    "kata",
+    "node"
+  ],
+  "author": "JOn Urry <jon@urry.me> (http://jon.urry.me)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jonurry/snakes-and-ladders-kata/issues"
+  },
+  "homepage": "https://github.com/jonurry/snakes-and-ladders-kata#readme"
+}
