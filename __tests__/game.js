@@ -67,5 +67,16 @@ describe('Game', () => {
       expect(game.position).toEqual(7)
       random.mockRestore()
     })
+
+    test('It should move the number of spaces indicated on the die', () => {
+      // Given the player rolls a 4
+      // When they move their token
+      // Then the token should move 4 spaces
+      const random = jest.spyOn(Math, 'random')
+      random.mockImplementation(() => 0.5) //roll a 4
+      game.rollDie()
+      expect(game.position).toEqual(5)
+      random.mockRestore()
+    })
   })
 })
