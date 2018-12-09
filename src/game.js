@@ -22,6 +22,6 @@ export default class Game {
   }
 
   rollDie() {
-    this.position += getRandomIntInclusive(1, 6)
+    this.move(getRandomIntInclusive(1, 6))
   }
 }
